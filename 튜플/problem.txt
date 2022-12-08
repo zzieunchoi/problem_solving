@@ -1,0 +1,29 @@
+1. sort 시 lambda 사용
+정렬을 목적으로 하는 함수를 값으로 넣음
+ex) str_list.sort(key=len) : 길이 오름차순으로 리스트 정렬
+ex) str_list.sort(key=lambda x : x[1]) : 첫번쨰 인자의 오름차순으로 리스트 정렬
+
+2. 리스트의 합집합, 차집합, 교집합
+1) 합집합: 
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+union = list(set(lst1) | set(lst2))
+print( union ) # ['C', 'F', 'A', 'E', 'B', 'D']
+union = list(set().union(lst1,lst2))
+print( union ) # ['C', 'F', 'A', 'E', 'B', 'D']
+
+2) 차집합: 
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+complement = list(set(lst1) - set(lst2))
+print( complement ) # ['B', 'A']
+complement = list(set(lst1).difference(lst2))
+print( complement ) # ['A', 'B']
+
+3) 교집합:
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+intersection = list(set(lst1) & set(lst2))
+print( intersection ) # ['C', 'D']
+intersection = list(set(lst1).intersection(lst2))
+print( intersection ) # ['C', 'D']
