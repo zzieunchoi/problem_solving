@@ -1,0 +1,11 @@
+1. deque의 앞에 빼내기
+- from collections import deque
+- deque.popleft()
+
+2. list의 앞에 빼내기
+- pop: 인덱스를 알아내서 뺴기 
+  list.pop(0)
+- remove: 값을 알아내서 빼기
+  list.remove('alice')
+-del: 삭제하고 싶은 값 인덱스로 뺴기
+  del list[0]
