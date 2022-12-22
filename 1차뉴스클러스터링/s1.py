@@ -60,3 +60,43 @@ def solution(str1, str2):
     else:
         return 65536
     return answer
+
+#내풀이
+def solution(str1, str2):
+    answer = 0
+    str1_list = []
+    str2_list = []
+    for i in range(0, len(str1)-1):
+        sstr = str1[i]+str1[i+1]
+        if sstr.isalpha() == True:
+            str1_list.append(sstr.lower())
+    for i in range(0, len(str2)-1):
+        sstr = str2[i]+str2[i+1]
+        if sstr.isalpha() == True:
+            str2_list.append(sstr.lower())
+    print(str1_list,str2_list)
+    print(set(str1_list+str2_list))
+    
+    #교집합
+    intersection = []
+    for i in set(str1_list+str2_list):
+        m = str1_list.count(i)
+        n = str2_list.count(i)
+        intersection.append(min(m,n))
+    print(intersection)
+    
+    #합집합
+    union = []
+    for i in set(str1_list+str2_list):
+        m = str1_list.count(i)
+        n = str2_list.count(i)
+        union.append(max(m,n))
+    print(union)
+    
+    if sum(intersection) != 0 and sum(union) != 0:
+        answer = math.trunc((sum(intersection)/sum(union))*65536)
+    elif sum(intersection ) == 0 and len(union) == 0:
+        answer = 65536
+    else:
+        answer = 0
+    return answer
